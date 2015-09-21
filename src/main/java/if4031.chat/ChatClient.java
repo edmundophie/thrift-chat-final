@@ -148,7 +148,8 @@ public class ChatClient {
 
     private static void exit() throws TException, InterruptedException {
         logout();
-        messageListenerThread.join();
+        if(messageListenerThread!=null)
+            messageListenerThread.join();
     }
 
     private static void join(String parameter) throws TException, InterruptedException {
@@ -158,6 +159,7 @@ public class ChatClient {
             boolean result;
             synchronized (client) {
                 result = client.join(nickname, parameter);
+//                System.out.println(result);
             }
             if(result) {
                 System.out.println("#" + parameter + " joined successfully");
