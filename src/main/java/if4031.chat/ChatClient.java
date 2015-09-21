@@ -146,8 +146,9 @@ public class ChatClient {
             System.err.println("Failed to log out!");
     }
 
-    private static void exit() throws TException {
+    private static void exit() throws TException, InterruptedException {
         logout();
+        messageListenerThread.join();
     }
 
     private static void join(String parameter) throws TException, InterruptedException {
