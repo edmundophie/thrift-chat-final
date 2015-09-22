@@ -6,7 +6,8 @@ CLI Chat Program Based on Apache Thrift
  - JRE >= 1.7
 
 ## How to Build
-1. Resolve maven dependency
+1. Resolve maven dependency  
+
 	 ```
 	 $ mvn dependency:copy-dependencies
 	 ```
@@ -27,3 +28,5 @@ CLI Chat Program Based on Apache Thrift
 	 ```
 	 $ java -cp target/dependency/*:target/thrift-chat-1.0-SNAPSHOT.jar if4031.chat.ChatClient
 	 ```
+
+## Testing
