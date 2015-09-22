@@ -32,7 +32,7 @@ CLI Chat Program Based on Apache Thrift
 ## Testing
 ![alt text](https://github.com/edmundophie/thrift-chat-final/blob/master/testing-screenshot/1.png "Testing Screenshot 1")
 ![alt text](https://github.com/edmundophie/thrift-chat-final/blob/master/testing-screenshot/2.png "Testing Screenshot 2")
-![alt tag](https://www.dropbox.com/s/045w0hux3uqn35d/tes_thrift_3.png?dl=0)
+![alt text](https://github.com/edmundophie/thrift-chat-final/blob/master/tes_thrift_3.png "Testing Screenshot 3")
 
 ## Team Member
 - Edmund Ophie 13512095
