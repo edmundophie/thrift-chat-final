@@ -30,3 +30,7 @@ CLI Chat Program Based on Apache Thrift
 	 ```
 
 ## Testing
+
+## Team Member
+- Edmund Ophie 13512095
+- Kevin 13512097
