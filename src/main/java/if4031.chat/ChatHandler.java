@@ -29,15 +29,13 @@ public class ChatHandler implements ChatService.Iface{
     private static Map<String, List<Message>> messageListMap;
 
     public ChatHandler() {
-        try {
-            userFile = new File(this.getClass().getResource("/" + USER_FILE_NAME).getFile());
-            userMap = new ObjectMapper().readValue(userFile, new TypeReference<Map<String, User>>(){});
-            channelFile = new File(this.getClass().getResource("/" + CHANNEL_FILE_NAME).getFile());
-            channelMap = new ObjectMapper().readValue(channelFile, new TypeReference<Map<String, Channel>>() {});
-            messageListMap = new HashMap<String, List<Message>>();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //            userFile = new File(this.getClass().getResource("/" + USER_FILE_NAME).getFile());
+//            userMap = new ObjectMapper().readValue(userFile, new TypeReference<Map<String, User>>(){});
+//            channelFile = new File(this.getClass().getResource("/" + CHANNEL_FILE_NAME).getFile());
+//            channelMap = new ObjectMapper().readValue(channelFile, new TypeReference<Map<String, Channel>>() {});
+        userMap =  new HashMap<String, User>();
+        channelMap =  new HashMap<String, Channel>();
+        messageListMap = new HashMap<String, List<Message>>();
     }
 
     public void ping() throws TException {
@@ -54,7 +52,7 @@ public class ChatHandler implements ChatService.Iface{
             result = generateRandomNickname();
 
         userMap.put(result, new User(result));
-        saveMapToFile(userMap, userFile); // TODO async
+//        saveMapToFile(userMap, userFile); // TODO async
 
         return result;
     }
@@ -65,13 +63,13 @@ public class ChatHandler implements ChatService.Iface{
 
         if(!channelMap.containsKey(channelName)) {
             channelMap.put(channelName, new Channel(channelName));
-            saveMapToFile(channelMap, channelFile); // TODO async
+//            saveMapToFile(channelMap, channelFile); // TODO async
             messageListMap.put(channelName, new ArrayList<Message>());
         }
 
         if(!userChannelList.contains(channelName)) {
             userChannelList.add(channelName);
-            saveMapToFile(userMap, userFile); // TODO async
+//            saveMapToFile(userMap, userFile); // TODO async
             return true;
         }
 
@@ -91,7 +89,7 @@ public class ChatHandler implements ChatService.Iface{
     public boolean exit(String nickname) throws TException {
         System.out.println("- " + nickname + " logged out");
         userMap.remove(nickname);
-        saveMapToFile(userMap, userFile); // TODO async
+//        saveMapToFile(userMap, userFile); // TODO async
         return true;
     }
 
@@ -111,7 +109,7 @@ public class ChatHandler implements ChatService.Iface{
             messageListMap.get(channelName).add(temp);
         }
 
-        saveMapToFile(channelMap, channelFile); // TODO async
+//        saveMapToFile(channelMap, channelFile); // TODO async
         return true;
     }
 
@@ -128,7 +126,7 @@ public class ChatHandler implements ChatService.Iface{
         msg.setText("@" + channelName + " " + nickname + ": " + msg.getText());
         messageListMap.get(channelName).add(msg);
 
-        saveMapToFile(channelMap, channelFile); // TODO async
+//        saveMapToFile(channelMap, channelFile); // TODO async
         return true;
     }
 
